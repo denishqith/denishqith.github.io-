@@ -1,239 +1,633 @@
+
+
 <!DOCTYPE html>
+
 <html lang="my">
+
 <head>
+
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>For My Jaan 💖</title>
+
+  <meta name="theme-color" content="#09090d">
+
+  <meta name="description" content="Discover premium digital products at Denish Digital Store.">
+
+  <title>DENISH | Digital Store</title>
+
   <style>
+
     * {
-      box-sizing: border-box;
+
       margin: 0;
+
       padding: 0;
+
+      box-sizing: border-box;
+
+    }
+
+    :root {
+
+      --bg: #09090d;
+
+      --card: #14141c;
+
+      --purple: #a78bfa;
+
+      --text: #f5f3ff;
+
+      --muted: #a1a1aa;
+
     }
 
     body {
-      background-color: #0d0914;
-      background-image: radial-gradient(circle, #221029 0%, #0d0914 100%);
-      font-family: 'Pyidaungsu', 'Padauk', -apple-system, sans-serif;
-      color: #fff;
+
+      font-family: -apple-system, BlinkMacSystemFont,
+
+        "Segoe UI", sans-serif;
+
+      background: var(--bg);
+
+      color: var(--text);
+
+      line-height: 1.6;
+
+    }
+
+    a {
+
+      color: inherit;
+
+      text-decoration: none;
+
+    }
+
+    header {
+
       display: flex;
-      justify-content: center;
+
+      justify-content: space-between;
+
       align-items: center;
-      min-height: 100vh;
-      padding: 20px;
-      overflow-x: hidden;
-      position: relative;
+
+      padding: 20px 7%;
+
+      border-bottom: 1px solid #252530;
+
     }
 
-    /* Floating Heart Animation Background */
-    .heart-bg {
-      position: fixed;
-      top: -10%;
-      color: rgba(255, 105, 180, 0.4);
-      font-size: 20px;
-      user-select: none;
-      animation: fall linear infinite;
-      z-index: 1;
+    .logo {
+
+      font-size: 21px;
+
+      font-weight: 900;
+
+      letter-spacing: 1px;
+
     }
 
-    @keyframes fall {
-      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-      100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+    .logo span {
+
+      color: var(--purple);
+
     }
 
-    /* Main Container Card */
-    .container {
-      width: 100%;
-      max-width: 420px;
-      background: rgba(30, 20, 38, 0.75);
-      border: 1px solid rgba(255, 182, 193, 0.2);
-      backdrop-filter: blur(10px);
-      border-radius: 24px;
-      padding: 28px 20px;
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 15px rgba(255, 105, 180, 0.2);
+    nav a {
+
+      margin-left: 20px;
+
+      font-size: 13px;
+
+      color: #d4d4d8;
+
+    }
+
+    .hero {
+
       text-align: center;
-      z-index: 10;
-      position: relative;
+
+      padding: 85px 20px 65px;
+
+      background: radial-gradient(
+
+        ellipse at top,
+
+        #302052 0%,
+
+        #151020 32%,
+
+        var(--bg) 72%
+
+      );
+
     }
 
-    /* Candle Animation */
-    .candle-container {
-      display: flex;
-      justify-content: center;
-      align-items: flex-end;
-      margin-bottom: 15px;
-    }
-    .flame {
-      width: 12px;
-      height: 20px;
-      background: #ff9d00;
-      border-radius: 50% 50% 20% 20%;
-      box-shadow: 0 0 12px #ff9d00, 0 0 24px #ff3300;
-      animation: flicker 0.1s infinite alternate;
-      margin: 0 auto;
-    }
-    .wick {
-      width: 2px;
-      height: 6px;
-      background: #555;
-      margin: 0 auto;
-    }
-    .candle-body {
-      width: 24px;
-      height: 35px;
-      background: linear-gradient(#f7d794, #f5cd79);
-      border-radius: 4px;
-      margin: 0 auto;
-    }
+    .tag {
 
-    @keyframes flicker {
-      0% { transform: scale(1) rotate(-2deg); opacity: 0.9; }
-      100% { transform: scale(1.1) rotate(2deg); opacity: 1; }
-    }
+      display: inline-block;
 
-    /* Profile Photo Frame */
-    .photo-frame {
-      width: 140px;
-      height: 140px;
-      margin: 10px auto 20px auto;
-      border-radius: 50%;
-      padding: 5px;
-      background: linear-gradient(45deg, #ff758c, #ff7eb3);
-      box-shadow: 0 0 20px rgba(255, 117, 140, 0.5);
-    }
+      padding: 6px 14px;
 
-    .photo-frame img {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      object-fit: cover;
-      background-color: #333;
-    }
+      border: 1px solid #6d529b;
 
-    /* Paper/Letter Section */
-    .letter-box {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px dashed rgba(255, 182, 193, 0.4);
-      border-radius: 16px;
-      padding: 20px 16px;
-      margin-top: 10px;
-      position: relative;
-    }
-
-    .pen-icon {
-      font-size: 22px;
-      position: absolute;
-      top: -14px;
-      right: 15px;
-      transform: rotate(-45deg);
-      animation: write 1.5s infinite alternate ease-in-out;
-    }
-
-    @keyframes write {
-      0% { transform: rotate(-45deg) translate(0, 0); }
-      100% { transform: rotate(-35deg) translate(-5px, 5px); }
-    }
-
-    /* Typing Animation Effect */
-    .typing-text {
-      font-size: 15px;
-      line-height: 1.7;
-      color: #ffeaa7;
-      font-weight: 500;
-      white-space: pre-wrap;
-      border-right: 2px solid #ff758c;
-      animation: blink 0.75s step-end infinite;
-      text-align: left;
-    }
-
-    @keyframes blink {
-      from, to { border-color: transparent; }
-      50% { border-color: #ff758c; }
-    }
-
-    /* Forgive Button */
-    .forgive-btn {
-      margin-top: 22px;
-      background: linear-gradient(45deg, #ff758c, #ff7eb3);
-      color: #fff;
-      border: none;
-      padding: 12px 28px;
-      font-size: 15px;
-      font-weight: 700;
       border-radius: 30px;
-      cursor: pointer;
-      box-shadow: 0 5px 15px rgba(255, 117, 140, 0.4);
-      transition: transform 0.2s;
+
+      color: #d8bfff;
+
+      font-size: 12px;
+
+      margin-bottom: 22px;
+
     }
 
-    .forgive-btn:active {
-      transform: scale(0.95);
+    .hero h1 {
+
+      font-size: clamp(36px, 8vw, 65px);
+
+      line-height: 1.15;
+
+      margin-bottom: 20px;
+
+      letter-spacing: -2px;
+
     }
+
+    .hero h1 span {
+
+      color: var(--purple);
+
+    }
+
+    .hero p {
+
+      color: #b8b5c5;
+
+      max-width: 480px;
+
+      margin: 0 auto 28px;
+
+      font-size: 15px;
+
+    }
+
+    .btn {
+
+      display: inline-block;
+
+      background: var(--purple);
+
+      color: #100b1c;
+
+      padding: 12px 23px;
+
+      border-radius: 10px;
+
+      font-weight: 800;
+
+      font-size: 14px;
+
+      transition: 0.2s;
+
+    }
+
+    .btn:hover {
+
+      transform: translateY(-2px);
+
+      opacity: 0.9;
+
+    }
+
+    .section {
+
+      padding: 45px 7% 65px;
+
+      max-width: 1250px;
+
+      margin: auto;
+
+    }
+
+    .section-title {
+
+      margin-bottom: 25px;
+
+    }
+
+    .section-title h2 {
+
+      font-size: 28px;
+
+      margin-bottom: 5px;
+
+    }
+
+    .section-title p {
+
+      color: var(--muted);
+
+      font-size: 14px;
+
+    }
+
+    .products {
+
+      display: grid;
+
+      grid-template-columns: repeat(
+
+        auto-fit, minmax(220px, 1fr)
+
+      );
+
+      gap: 20px;
+
+    }
+
+    .product {
+
+      background: var(--card);
+
+      border: 1px solid #292936;
+
+      border-radius: 17px;
+
+      padding: 23px;
+
+      transition: 0.25s;
+
+    }
+
+    .product:hover {
+
+      border-color: var(--purple);
+
+      transform: translateY(-4px);
+
+    }
+
+    .product-icon {
+
+      height: 100px;
+
+      border-radius: 12px;
+
+      display: grid;
+
+      place-items: center;
+
+      font-size: 43px;
+
+      background: linear-gradient(135deg, #30234a, #171521);
+
+      margin-bottom: 20px;
+
+    }
+
+    .product small {
+
+      color: var(--purple);
+
+      font-weight: 700;
+
+    }
+
+    .product h3 {
+
+      margin: 8px 0;
+
+      font-size: 19px;
+
+    }
+
+    .product p {
+
+      color: var(--muted);
+
+      font-size: 13px;
+
+      min-height: 42px;
+
+      margin-bottom: 18px;
+
+    }
+
+    .buy-row {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      gap: 10px;
+
+      border-top: 1px solid #292936;
+
+      padding-top: 17px;
+
+    }
+
+    .price {
+
+      font-weight: 800;
+
+      font-size: 15px;
+
+    }
+
+    .buy {
+
+      background: #272039;
+
+      color: #e9ddff;
+
+      border: 1px solid #57417d;
+
+      border-radius: 8px;
+
+      padding: 9px 13px;
+
+      font-size: 12px;
+
+      font-weight: 700;
+
+    }
+
+    .buy:hover {
+
+      background: var(--purple);
+
+      color: #100b1c;
+
+    }
+
+    .info {
+
+      margin: 0 7% 60px;
+
+      padding: 30px;
+
+      text-align: center;
+
+      border: 1px solid #302743;
+
+      background: #111019;
+
+      border-radius: 17px;
+
+    }
+
+    .info h2 {
+
+      margin-bottom: 10px;
+
+    }
+
+    .info p {
+
+      color: var(--muted);
+
+      font-size: 14px;
+
+      margin-bottom: 20px;
+
+    }
+
+    footer {
+
+      text-align: center;
+
+      border-top: 1px solid #252530;
+
+      padding: 25px 15px;
+
+      color: var(--muted);
+
+      font-size: 12px;
+
+    }
+
+    footer span {
+
+      color: var(--purple);
+
+    }
+
+    @media (max-width: 480px) {
+
+      header {
+
+        padding: 17px 5%;
+
+      }
+
+      nav a {
+
+        margin-left: 10px;
+
+        font-size: 12px;
+
+      }
+
+      .hero {
+
+        padding-top: 65px;
+
+      }
+
+      .section {
+
+        padding-left: 5%;
+
+        padding-right: 5%;
+
+      }
+
+      .products {
+
+        grid-template-columns: 1fr;
+
+      }
+
+      .info {
+
+        margin-left: 5%;
+
+        margin-right: 5%;
+
+      }
+
+    }
+
   </style>
+
 </head>
+
 <body>
 
-  <!-- Floating Hearts Background -->
-  <div id="hearts-container"></div>
+  <header>
 
-  <div class="container">
-    
-    <!-- 1. ဖယောင်းတိုင် (Candle) -->
-    <div class="candle-container">
-      <div>
-        <div class="flame"></div>
-        <div class="wick"></div>
-        <div class="candle-body"></div>
-      </div>
+    <a class="logo" href="#">DENISH<span>.</span></a>
+
+    <nav>
+
+      <a href="#home">Home</a>
+
+      <a href="#products">Products</a>
+
+      <a href="#contact">Contact</a>
+
+    </nav>
+
+  </header>
+
+  <section class="hero" id="home">
+
+    <div class="tag">✦ YOUR DIGITAL MARKETPLACE</div>
+
+    <h1>Upgrade Your <span>Digital Life.</span></h1>
+
+    <p>
+
+      မင်းရဲ့လိုအပ်ချက်နဲ့ကိုက်ညီတဲ့ Digital Products တွေကို
+
+      တစ်နေရာတည်းမှာ ရှာဖွေဝယ်ယူလိုက်ပါ။
+
+    </p>
+
+    <a href="#products" class="btn">
+
+      Explore Products ↗
+
+    </a>
+
+  </section>
+
+  <section class="section" id="products">
+
+    <div class="section-title">
+
+      <h2>Our Products.</h2>
+
+      <p>မင်းအတွက် ရွေးချယ်ထားတဲ့ Digital Products များ</p>
+
     </div>
 
-    <!-- 2. သူ့ပုံလေး (Photo Frame) -->
-    <div class="photo-frame">
-      <img src="https://i.postimg.cc/67N5ZPD5/IMG-0963.jpg" alt="My Jaan">
+    <div class="products">
+
+      <!-- PRODUCT 1 -->
+
+      <article class="product">
+
+        <div class="product-icon">📘</div>
+
+        <small>E-BOOK</small>
+
+        <h3>Premium E-Book</h3>
+
+        <p>ဗဟုသုတနဲ့ ကိုယ်ရည်ကိုယ်သွေး တိုးတက်ဖို့ လေ့လာလိုက်ပါ။</p>
+
+        <div class="buy-row">
+
+          <span class="price">5,000 MMK</span>
+
+          <a class="buy" href="https://t.me/YOUR_USERNAME">
+
+            Buy Now ↗
+
+          </a>
+
+        </div>
+
+      </article>
+
+      <!-- PRODUCT 2 -->
+
+      <article class="product">
+
+        <div class="product-icon">🎨</div>
+
+        <small>TEMPLATES</small>
+
+        <h3>Design Templates</h3>
+
+        <p>Social media အတွက် အသုံးဝင်တဲ့ Design Templates များ။</p>
+
+        <div class="buy-row">
+
+          <span class="price">3,000 MMK</span>
+
+          <a class="buy" href="https://t.me/YOUR_USERNAME">
+
+            Buy Now ↗
+
+          </a>
+
+        </div>
+
+      </article>
+
+      <!-- PRODUCT 3 -->
+
+      <article class="product">
+
+        <div class="product-icon">💻</div>
+
+        <small>WEB FILES</small>
+
+        <h3>Website Template</h3>
+
+        <p>ကိုယ်ပိုင် Website တည်ဆောက်ဖို့ HTML Template များ။</p>
+
+        <div class="buy-row">
+
+          <span class="price">8,000 MMK</span>
+
+          <a class="buy" href="https://t.me/YOUR_USERNAME">
+
+            Buy Now ↗
+
+          </a>
+
+        </div>
+
+      </article>
+
     </div>
 
-    <!-- 3 & 4. စာရွက်ပေါ်မှာ pen နဲ့ typing ရေးနေတဲ့ animation -->
-    <div class="letter-box">
-      <span class="pen-icon">✍️</span>
-      <p class="typing-text" id="typed-text"></p>
-    </div>
+  </section>
 
-    <!-- 5. ခွင့်လွှတ်ပါ ခလုတ် -->
-    <button class="forgive-btn" onclick="alert('ချစ်တယ်နော် Jaan 💖 စိတ်မဆိုးတော့ဘူးမလား?')">
-      စိတ်ဆိုးပြေပါတော့ Jaan 🥺❤️
-    </button>
+  <section class="info" id="contact">
 
-  </div>
+    <h2>Need Something?</h2>
 
-  <script>
-    // Heart Floating Animation Script
-    function createHeart() {
-      const heart = document.createElement('div');
-      heart.classList.add('heart-bg');
-      heart.innerHTML = '❤️';
-      heart.style.left = Math.random() * 100 + 'vw';
-      heart.style.animationDuration = Math.random() * 3 + 2 + 's';
-      heart.style.fontSize = Math.random() * 15 + 10 + 'px';
-      document.getElementById('hearts-container').appendChild(heart);
+    <p>
 
-      setTimeout(() => {
-        heart.remove();
-      }, 5000);
-    }
-    setInterval(createHeart, 300);
+      Product နဲ့ပတ်သက်ပြီး မေးမြန်းလိုပါက
 
-    // Typing Effect Script
-    const message = "ကိုယ့်ရဲ့ Jaan လေး... 🌹\n\nကိုယ့်ကြောင့် စိတ်ညစ်သွားရရင် တကယ်တောင်းပန်ပါတယ်နော်။ Jaan စိတ်ဆိုးနေရင် ကိုယ့်မှာ ဘာမှလုပ်လို့မရလောက်အောင် ဝမ်းနည်းရပါတယ်။\n\nဒီကမ္ဘာမှာ Jaan ကို အချစ်ဆုံးမို့လို့ ကိုယ့်ကို စိတ်မဆိုးပါနဲ့တော့နော်... ❤️✨";
-    let index = 0;
-    function typeText() {
-      if (index < message.length) {
-        document.getElementById("typed-text").innerHTML += message.charAt(index);
-        index++;
-        setTimeout(typeText, 70);
-      }
-    }
-    window.onload = typeText;
-  </script>
+      Telegram မှတစ်ဆင့် ဆက်သွယ်နိုင်ပါတယ်။
+
+    </p>
+
+    <a class="btn" href="https://t.me/YOUR_USERNAME">
+
+      Contact Us ↗
+
+    </a>
+
+  </section>
+
+  <footer>
+
+    <p>© 2026 <span>DENISH DIGITAL STORE</span></p>
+
+    <p>Built for your digital future.</p>
+
+  </footer>
 
 </body>
+
 </html>
